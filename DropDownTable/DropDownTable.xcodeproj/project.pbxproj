@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		28321713183F8B8200D74380 /* minus_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 28321712183F8B8200D74380 /* minus_button.png */; };
+		28321715183F8B8800D74380 /* plus_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 28321714183F8B8800D74380 /* plus_button.png */; };
 		285684FF183CF2E600CB04EB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 285684FE183CF2E600CB04EB /* Foundation.framework */; };
 		28568501183CF2E600CB04EB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28568500183CF2E600CB04EB /* CoreGraphics.framework */; };
 		28568503183CF2E600CB04EB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28568502183CF2E600CB04EB /* UIKit.framework */; };
@@ -37,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		28321712183F8B8200D74380 /* minus_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = minus_button.png; sourceTree = "<group>"; };
+		28321714183F8B8800D74380 /* plus_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus_button.png; sourceTree = "<group>"; };
 		285684FB183CF2E600CB04EB /* DropDownTable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DropDownTable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		285684FE183CF2E600CB04EB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		28568500183CF2E600CB04EB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -140,6 +144,8 @@
 				28568506183CF2E600CB04EB /* DropDownTable-Info.plist */,
 				28568507183CF2E600CB04EB /* InfoPlist.strings */,
 				2856850A183CF2E600CB04EB /* main.m */,
+				28321712183F8B8200D74380 /* minus_button.png */,
+				28321714183F8B8800D74380 /* plus_button.png */,
 				2856850C183CF2E600CB04EB /* DropDownTable-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -240,7 +246,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28321713183F8B8200D74380 /* minus_button.png in Resources */,
 				28568515183CF2E600CB04EB /* Main_iPad.storyboard in Resources */,
+				28321715183F8B8800D74380 /* plus_button.png in Resources */,
 				2856851A183CF2E600CB04EB /* Images.xcassets in Resources */,
 				28568512183CF2E600CB04EB /* Main_iPhone.storyboard in Resources */,
 				28568509183CF2E600CB04EB /* InfoPlist.strings in Resources */,

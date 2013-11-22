@@ -88,9 +88,11 @@
     
     // Configure the cell.
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.accessoryType = UITableViewCellAccessoryNone;
+    cell.accessoryView = [self customAccessoryViewFor:[UIImage imageNamed:@"plus_button.png"]];
+    
     [[cell textLabel] setFont:[UIFont fontWithName:@"Lato-Light" size:16.0]];
     [cell setBackgroundColor:[UIColor colorWithRed:0 green:0.573 blue:0.271 alpha:1]];
+    [[cell textLabel] setTextColor:[UIColor whiteColor]];
     
     switch ([indexPath section]) {
         case 0:
@@ -106,11 +108,25 @@
     //for all drop down parts of table change color of background so it's obvious
      if ([indexPath row] == 1) {
          [cell setBackgroundColor:[UIColor whiteColor]];
+         [[cell textLabel] setTextColor:[UIColor grayColor]];
      }
     
     return cell;
 }
 
+//custom accessory view
+-(UIView*)customAccessoryViewFor:(UIImage*)theAccessory
+{
+    UIImageView *accImageView = [[UIImageView alloc] initWithImage:theAccessory];
+    accImageView.userInteractionEnabled = YES;
+    [accImageView setFrame:CGRectMake(0, 0, 28.0, 28.0)];
+
+    return accImageView;
+}
+         
+         
+         
+         
 - (IBAction)insertRows:(id)sender forIndexPathRow:(NSInteger)row andSection:(NSInteger)section
 {
     NSArray *insertIndexPaths = [NSArray arrayWithObjects:[NSIndexPath indexPathForRow:row inSection:section], nil];
@@ -134,37 +150,51 @@
     [self.table endUpdates];
 }
 
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+
     //section0
     if ([indexPath section]== 0 && [indexPath row] == 0 && self.down0 == NO)
     {
+        cell.accessoryView = [self customAccessoryViewFor:[UIImage imageNamed:@"minus_button.png"]];
         [self.section0 insertObject:@"Scan Now" atIndex:1];
         [self insertRows:self forIndexPathRow:1 andSection:[indexPath section]];
         self.down0 = YES;
+
+
     }
     
     else if ([indexPath section]== 0 && [indexPath row] == 0 && self.down0 == YES && [self.section0 count] >1)
     {
+        
+        [self.table deselectRowAtIndexPath:[self.table indexPathForSelectedRow] animated:YES];
+        cell.accessoryView = [self customAccessoryViewFor:[UIImage imageNamed:@"plus_button.png"]];
         [self.section0 removeObjectAtIndex:1];
         [self deleteRows:self forIndexPathRow:1 andSection:[indexPath section]];
         self.down0 = NO;
+
     }
     
     //section1
     if ([indexPath section]== 1 && [indexPath row] == 0 && self.down1 == NO)
     {
-    [self.section1 insertObject:@"Sync Now" atIndex:1];
+        cell.accessoryView = [self customAccessoryViewFor:[UIImage imageNamed:@"minus_button.png"]];
+        [self.section1 insertObject:@"Sync Now" atIndex:1];
         [self insertRows:self forIndexPathRow:1 andSection:[indexPath section]];
         self.down1 = YES;
+
     }
     
     else if ([indexPath section]== 1 && [indexPath row] == 0 && self.down1 == YES && [self.section1 count] >1)
     {
+        [self.table deselectRowAtIndexPath:[self.table indexPathForSelectedRow] animated:YES];
+        cell.accessoryView = [self customAccessoryViewFor:[UIImage imageNamed:@"plus_button.png"]];
         [self.section1 removeObjectAtIndex:1];
         [self deleteRows:self forIndexPathRow:1 andSection:[indexPath section]];
         self.down1 = NO;
+
+
     }
     
      else return;
