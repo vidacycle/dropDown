@@ -17,6 +17,7 @@
 @property (nonatomic, retain) Sections *section_1;
 @property (nonatomic) NSInteger numberOfSections;
 @property (nonatomic, retain) NSDictionary *dictionary;
+@property (nonatomic, retain) Sections *theSection;
 
 @end
 
@@ -69,7 +70,10 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     NSInteger rows = 0;
-    switch (section) {
+    self.theSection = [self.dictionary objectForKey:[NSString stringWithFormat:@"%i",section]];
+    self.theSection.numberOfRows = [self.theSection.currentTitles count];
+    rows = self.theSection.numberOfRows;
+    /*switch (section) {
         case 0:
             self.section_0.numberOfRows = [self.section_0.currentTitles count];
             rows = self.section_0.numberOfRows;
@@ -80,7 +84,7 @@
             break;
         default:
             break;
-    }
+    }*/
     return rows;
 }
 
@@ -101,6 +105,9 @@
     [cell setBackgroundColor:[UIColor colorWithRed:0 green:0.573 blue:0.271 alpha:1]];
     [[cell textLabel] setTextColor:[UIColor whiteColor]];
     
+    self.theSection = [self.dictionary objectForKey:[NSString stringWithFormat:@"%i",[indexPath section]]];
+    [[cell textLabel] setText:[self.theSection.currentTitles objectAtIndex:[indexPath row]]];
+    /*
     switch ([indexPath section]) {
         case 0:
             [[cell textLabel] setText:[self.section_0.currentTitles objectAtIndex:[indexPath row]]];
@@ -111,7 +118,7 @@
         default:
             break;
     }
-    
+    */
     //for all drop down parts of table change color of background so it's obvious
      if ([indexPath row] == 1) {
          //[cell setBackgroundColor:[UIColor whiteColor]];
@@ -151,6 +158,7 @@
 
 }
 
+
 - (IBAction)deleteRows:(id)sender forIndexPathRow:(NSInteger)row andSection:(NSInteger)section
 {
     NSArray *deleteIndexPaths = [NSArray arrayWithObjects:[NSIndexPath indexPathForRow:row inSection:section], nil];
@@ -159,6 +167,8 @@
     
     [self.table beginUpdates];
     [self.table deleteRowsAtIndexPaths:deleteIndexPaths withRowAnimation:UITableViewRowAnimationFade];
+    //self.theSection.numberOfRows = [self.theSection.currentTitles count];
+    //THIS IS CAUSING THE BUG!!!!!!!!!!!!!
     [self.table endUpdates];
 }
 
@@ -166,29 +176,38 @@
 {
 UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
 
+        self.theSection = [self.dictionary objectForKey:[NSString stringWithFormat:@"%i",[indexPath section]]];
+    NSLog(@"down 1? = %hhd", self.theSection.down);
+    NSLog(@"objectForKey: %@",[NSString stringWithFormat:@"%i",[indexPath section]]);
     //section0
-    if ([indexPath section]== 0 && [indexPath row] == 0 && self.section_0.down == NO)
+    if ([indexPath row] == 0 && self.theSection.down == NO)
     {
         cell.accessoryView = [self customAccessoryViewFor:[UIImage imageNamed:@"minus_button.png"]];
-        [self.section_0.currentTitles insertObject:@"Scan Now" atIndex:1];
+        [self.theSection.currentTitles insertObject:[self.theSection.titles objectAtIndex:1] atIndex:1];
         [self insertRows:self forIndexPathRow:1 andSection:[indexPath section]];
-        self.section_0.down = YES;
+        self.theSection.down = YES;
+        NSLog(@"down 2a? = %hhd", self.theSection.down);
 
 
     }
     
-    else if ([indexPath section]== 0 && [indexPath row] == 0 && self.section_0.down == YES && [self.section_0.currentTitles count] >1)
+    else if ([indexPath row] == 0 && self.theSection.down == YES && [self.theSection.currentTitles count] >1)
     {
-        
+        //
         [self.table deselectRowAtIndexPath:[self.table indexPathForSelectedRow] animated:YES];
         cell.accessoryView = [self customAccessoryViewFor:[UIImage imageNamed:@"plus_button.png"]];
-        [self.section_0.currentTitles removeObjectAtIndex:1];
+                self.theSection.down = NO;
+        [self.theSection.currentTitles removeObjectAtIndex:1];
         [self deleteRows:self forIndexPathRow:1 andSection:[indexPath section]];
-        self.section_0.down = NO;
+        
+        
+        //why does this above change self.theSection.down == YES for that one particular sequence only??
+        //self.theSection.down = NO;
+        NSLog(@"down 2b? = %hhd", self.theSection.down);
 
     }
-    
-
+   
+/*
     //section1
     if ([indexPath section]== 1 && [indexPath row] == 0 && self.section_1.down == NO)
     {
@@ -208,9 +227,10 @@ UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
         self.section_1.down = NO;
 
 
-    }
+    }*/
     
      else return;
+    
 }
 
 
