@@ -15,6 +15,7 @@
 @property (nonatomic, retain) NSArray *sections;
 @property (nonatomic, retain) Sections *section_0;
 @property (nonatomic, retain) Sections *section_1;
+@property (nonatomic, retain) Sections *section_2;
 @property (nonatomic) NSInteger numberOfSections;
 @property (nonatomic, retain) NSDictionary *dictionary;
 @property (nonatomic, retain) Sections *theSection;
@@ -38,19 +39,20 @@
 
     NSArray *sect0 = [[NSArray alloc] initWithObjects:@"Scan", @"Scan Now", nil];
     NSArray *sect1 = [[NSArray alloc] initWithObjects:@"Sync", @"Sync Now", nil];
+    NSArray *sect2 = [[NSArray alloc] initWithObjects:@"Settings", @"Write", nil];
     
     self.section_0 = [[Sections alloc] initSectionWithTitles:sect0];
     self.section_1 = [[Sections alloc] initSectionWithTitles:sect1];
+    self.section_2 = [[Sections alloc] initSectionWithTitles:sect2];
     
-    self.sections = [[NSArray alloc] initWithObjects:self.section_0, self.section_1, nil];
+    self.sections = [[NSArray alloc] initWithObjects:self.section_0, self.section_1, self.section_2, nil];
     
 
     NSMutableArray *keys = [[NSMutableArray alloc] initWithCapacity:10];
     for (int i=0; i < [self.sections count]; i++) {
         [keys addObject:[NSString stringWithFormat:@"%i", i]];
-       // [self.dictionary setObject:[self.sections objectAtIndex:i] forKey:[keys objectAtIndex:i]];
     }
-        //NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] initWithObjects:[self.sections objectAtIndex:i] forKeys:[keys objectAtIndex:i]];
+
     self.dictionary = [[NSDictionary alloc] initWithObjects:self.sections forKeys:keys];
 }
 
@@ -73,18 +75,7 @@
     self.theSection = [self.dictionary objectForKey:[NSString stringWithFormat:@"%i",section]];
     self.theSection.numberOfRows = [self.theSection.currentTitles count];
     rows = self.theSection.numberOfRows;
-    /*switch (section) {
-        case 0:
-            self.section_0.numberOfRows = [self.section_0.currentTitles count];
-            rows = self.section_0.numberOfRows;
-            break;
-        case 1:
-            self.section_1.numberOfRows = [self.section_1.currentTitles count];
-            rows = self.section_1.numberOfRows;
-            break;
-        default:
-            break;
-    }*/
+
     return rows;
 }
 
@@ -167,8 +158,6 @@
     
     [self.table beginUpdates];
     [self.table deleteRowsAtIndexPaths:deleteIndexPaths withRowAnimation:UITableViewRowAnimationFade];
-    //self.theSection.numberOfRows = [self.theSection.currentTitles count];
-    //THIS IS CAUSING THE BUG!!!!!!!!!!!!!
     [self.table endUpdates];
 }
 
@@ -179,7 +168,7 @@ UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
         self.theSection = [self.dictionary objectForKey:[NSString stringWithFormat:@"%i",[indexPath section]]];
     NSLog(@"down 1? = %hhd", self.theSection.down);
     NSLog(@"objectForKey: %@",[NSString stringWithFormat:@"%i",[indexPath section]]);
-    //section0
+    //row0
     if ([indexPath row] == 0 && self.theSection.down == NO)
     {
         cell.accessoryView = [self customAccessoryViewFor:[UIImage imageNamed:@"minus_button.png"]];
@@ -199,35 +188,9 @@ UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
                 self.theSection.down = NO;
         [self.theSection.currentTitles removeObjectAtIndex:1];
         [self deleteRows:self forIndexPathRow:1 andSection:[indexPath section]];
-        
-        
-        //why does this above change self.theSection.down == YES for that one particular sequence only??
-        //self.theSection.down = NO;
         NSLog(@"down 2b? = %hhd", self.theSection.down);
 
     }
-   
-/*
-    //section1
-    if ([indexPath section]== 1 && [indexPath row] == 0 && self.section_1.down == NO)
-    {
-        cell.accessoryView = [self customAccessoryViewFor:[UIImage imageNamed:@"minus_button.png"]];
-        [self.section_1.currentTitles insertObject:@"Sync Now" atIndex:1];
-        [self insertRows:self forIndexPathRow:1 andSection:[indexPath section]];
-        self.section_1.down = YES;
-
-    }
-    
-    else if ([indexPath section]== 1 && [indexPath row] == 0 && self.section_1.down == YES && [self.section_1.currentTitles count] >1)
-    {
-        [self.table deselectRowAtIndexPath:[self.table indexPathForSelectedRow] animated:YES];
-        cell.accessoryView = [self customAccessoryViewFor:[UIImage imageNamed:@"plus_button.png"]];
-        [self.section_1.currentTitles removeObjectAtIndex:1];
-        [self deleteRows:self forIndexPathRow:1 andSection:[indexPath section]];
-        self.section_1.down = NO;
-
-
-    }*/
     
      else return;
     
