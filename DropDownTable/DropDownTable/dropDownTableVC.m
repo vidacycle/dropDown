@@ -11,13 +11,10 @@
 
 @interface dropDownTableVC ()
 
-@property (nonatomic, retain) IBOutlet UITableView *table;
 @property (nonatomic, retain) NSMutableArray *sections;
 @property (nonatomic, retain) NSDictionary *dictionary;
 @property (nonatomic, retain) Sections *theSection;
 @property (nonatomic, retain) IBOutlet UIProgressView *progressView;
-
-
 
 @end
 
@@ -92,7 +89,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self.table setSeparatorColor:[UIColor clearColor]];
+    [self.tableView setSeparatorColor:[UIColor clearColor]];
     static NSString *CellIdentifier = @"Main";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
@@ -136,11 +133,11 @@
 {
     NSArray *insertIndexPaths = [NSArray arrayWithObjects:[NSIndexPath indexPathForRow:row inSection:section], nil];
 
-   self.table = (UITableView *)self.view;
+   self.tableView = (UITableView *)self.view;
     
-    [self.table beginUpdates];
-    [self.table insertRowsAtIndexPaths:insertIndexPaths withRowAnimation:UITableViewRowAnimationFade];
-    [self.table endUpdates];
+    [self.tableView beginUpdates];
+    [self.tableView insertRowsAtIndexPaths:insertIndexPaths withRowAnimation:UITableViewRowAnimationFade];
+    [self.tableView endUpdates];
 
 }
 
@@ -149,11 +146,11 @@
 {
     NSArray *deleteIndexPaths = [NSArray arrayWithObjects:[NSIndexPath indexPathForRow:row inSection:section], nil];
     
-    self.table = (UITableView *)self.view;
+    self.tableView = (UITableView *)self.view;
     
-    [self.table beginUpdates];
-    [self.table deleteRowsAtIndexPaths:deleteIndexPaths withRowAnimation:UITableViewRowAnimationFade];
-    [self.table endUpdates];
+    [self.tableView beginUpdates];
+    [self.tableView deleteRowsAtIndexPaths:deleteIndexPaths withRowAnimation:UITableViewRowAnimationFade];
+    [self.tableView endUpdates];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -177,7 +174,7 @@ UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     else if ([indexPath row] == 0 && self.theSection.down == YES && [self.theSection.currentTitles count] >1)
     {
         //
-        [self.table deselectRowAtIndexPath:[self.table indexPathForSelectedRow] animated:YES];
+        [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
         cell.accessoryView = [self customAccessoryViewFor:[UIImage imageNamed:@"plus_button.png"]];
                 self.theSection.down = NO;
         [self.theSection.currentTitles removeObjectAtIndex:1];
