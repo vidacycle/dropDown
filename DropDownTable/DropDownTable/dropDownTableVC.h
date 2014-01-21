@@ -10,4 +10,6 @@
 
 @interface dropDownTableVC : UITableViewController
 
+-(void)createArraysForEachSection:(NSInteger)numberOfSections fromSectionRowTitles:(NSArray*)arrayOfSectionArrays;
+
 @end

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="i2l-LO-HWe">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Zby-79-g8k">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -12,30 +12,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <tableView key="tableFooterView" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="1tx-s4-aqo">
-                            <rect key="frame" x="0.0" y="66" width="320" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <prototypes>
-                                <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Main" id="dlg-qf-JKC">
-                                    <rect key="frame" x="0.0" y="22" width="320" height="44"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dlg-qf-JKC" id="0Vq-eX-S5V">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                    </tableViewCellContentView>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </tableViewCell>
-                            </prototypes>
-                            <connections>
-                                <outlet property="dataSource" destination="i2l-LO-HWe" id="9B5-72-Omh"/>
-                                <outlet property="delegate" destination="i2l-LO-HWe" id="0cK-JC-51t"/>
-                            </connections>
-                        </tableView>
+                        <progressView key="tableFooterView" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" id="diw-9O-bz3">
+                            <rect key="frame" x="0.0" y="130" width="320" height="2"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </progressView>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="7ol-jO-paX">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7ol-jO-paX" id="Bzg-5T-4k7">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -48,11 +31,30 @@
                             <outlet property="delegate" destination="i2l-LO-HWe" id="oYb-Ob-ndS"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="gZe-kM-mAD"/>
                     <connections>
-                        <outlet property="table" destination="1tx-s4-aqo" id="QSc-yB-ulL"/>
+                        <outlet property="progressView" destination="diw-9O-bz3" id="oMk-Ns-bvU"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bfP-dr-1Ji" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1303" y="64"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="GrA-Ga-Pac">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Zby-79-g8k" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="voC-AX-9Zw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="i2l-LO-HWe" kind="relationship" relationship="rootViewController" id="5fD-Rj-ZQv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zEY-rX-q7o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="777" y="64"/>
         </scene>

@@ -12,13 +12,12 @@
 @interface dropDownTableVC ()
 
 @property (nonatomic, retain) IBOutlet UITableView *table;
-@property (nonatomic, retain) NSArray *sections;
-@property (nonatomic, retain) Sections *section_0;
-@property (nonatomic, retain) Sections *section_1;
-@property (nonatomic, retain) Sections *section_2;
-@property (nonatomic) NSInteger numberOfSections;
+@property (nonatomic, retain) NSMutableArray *sections;
 @property (nonatomic, retain) NSDictionary *dictionary;
 @property (nonatomic, retain) Sections *theSection;
+@property (nonatomic, retain) IBOutlet UIProgressView *progressView;
+
+
 
 @end
 
@@ -37,22 +36,34 @@
 {
     [super viewDidLoad];
 
+    self.progressView.hidden = YES;
     NSArray *sect0 = [[NSArray alloc] initWithObjects:@"Scan", @"Scan Now", nil];
     NSArray *sect1 = [[NSArray alloc] initWithObjects:@"Sync", @"Sync Now", nil];
     NSArray *sect2 = [[NSArray alloc] initWithObjects:@"Settings", @"Write", nil];
     
-    self.section_0 = [[Sections alloc] initSectionWithTitles:sect0];
-    self.section_1 = [[Sections alloc] initSectionWithTitles:sect1];
-    self.section_2 = [[Sections alloc] initSectionWithTitles:sect2];
+    self.sections = [[NSMutableArray alloc] initWithCapacity:10];
+    NSArray *sectionsArray =[[NSArray alloc] initWithObjects:sect0, sect1, sect2, nil];
     
-    self.sections = [[NSArray alloc] initWithObjects:self.section_0, self.section_1, self.section_2, nil];
-    
+    [self createArraysForEachSection:[sectionsArray count] fromSectionRowTitles:sectionsArray];
 
+    
+}
+
+-(void)createArraysForEachSection:(NSInteger)numberOfSections fromSectionRowTitles:(NSArray*)arrayOfSectionArrays
+{
+    for(int i=0; i<numberOfSections; i++)
+    {
+        Sections *sections = [[Sections alloc] initSectionWithTitles:[arrayOfSectionArrays objectAtIndex:i]];
+        [self.sections addObject:sections];
+    }
+    
+    NSLog(@"Section arrays all filled");
+    
     NSMutableArray *keys = [[NSMutableArray alloc] initWithCapacity:10];
     for (int i=0; i < [self.sections count]; i++) {
         [keys addObject:[NSString stringWithFormat:@"%i", i]];
     }
-
+    
     self.dictionary = [[NSDictionary alloc] initWithObjects:self.sections forKeys:keys];
 }
 
@@ -72,7 +83,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     NSInteger rows = 0;
-    self.theSection = [self.dictionary objectForKey:[NSString stringWithFormat:@"%i",section]];
+    self.theSection = [self.dictionary objectForKey:[NSString stringWithFormat:@"%li",(long)section]];
     self.theSection.numberOfRows = [self.theSection.currentTitles count];
     rows = self.theSection.numberOfRows;
 
@@ -92,35 +103,21 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.accessoryView = [self customAccessoryViewFor:[UIImage imageNamed:@"plus_button.png"]];
     
-    [[cell textLabel] setFont:[UIFont fontWithName:@"Lato Light" size:16.0]];
+    [[cell textLabel] setFont:[UIFont fontWithName:@"Lato Light" size:20.0]];
     [cell setBackgroundColor:[UIColor colorWithRed:0 green:0.573 blue:0.271 alpha:1]];
     [[cell textLabel] setTextColor:[UIColor whiteColor]];
     
-    self.theSection = [self.dictionary objectForKey:[NSString stringWithFormat:@"%i",[indexPath section]]];
+    self.theSection = [self.dictionary objectForKey:[NSString stringWithFormat:@"%li",(long)[indexPath section]]];
     [[cell textLabel] setText:[self.theSection.currentTitles objectAtIndex:[indexPath row]]];
-    /*
-    switch ([indexPath section]) {
-        case 0:
-            [[cell textLabel] setText:[self.section_0.currentTitles objectAtIndex:[indexPath row]]];
-            break;
-        case 1:
-            [[cell textLabel] setText:[self.section_1.currentTitles objectAtIndex:[indexPath row]]];
-            break;
-        default:
-            break;
-    }
-    */
+
     //for all drop down parts of table change color of background so it's obvious
-     if ([indexPath row] == 1) {
+     if ([indexPath row] >0) {
          //[cell setBackgroundColor:[UIColor whiteColor]];
-         [[cell textLabel] setTextColor:[UIColor grayColor]];
+         [[cell textLabel] setTextColor:[UIColor whiteColor]];
          [[cell textLabel] setFont:[UIFont fontWithName:@"Arial" size:16.0]];
+         cell.accessoryView = Nil;
      }
-    
-    if ([indexPath row] > 0) {
-        cell.accessoryView = Nil;
-    }
-    
+
     return cell;
 }
 
@@ -133,9 +130,7 @@
 
     return accImageView;
 }
-         
-         
-         
+
          
 - (IBAction)insertRows:(id)sender forIndexPathRow:(NSInteger)row andSection:(NSInteger)section
 {
@@ -165,9 +160,9 @@
 {
 UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
 
-        self.theSection = [self.dictionary objectForKey:[NSString stringWithFormat:@"%i",[indexPath section]]];
-    NSLog(@"down 1? = %hhd", self.theSection.down);
-    NSLog(@"objectForKey: %@",[NSString stringWithFormat:@"%i",[indexPath section]]);
+        self.theSection = [self.dictionary objectForKey:[NSString stringWithFormat:@"%li",(long)[indexPath section]]];
+    NSLog(@"down 1? = %i", self.theSection.down);
+    NSLog(@"objectForKey: %@",[NSString stringWithFormat:@"%li",(long)[indexPath section]]);
     //row0
     if ([indexPath row] == 0 && self.theSection.down == NO)
     {
@@ -175,8 +170,7 @@ UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
         [self.theSection.currentTitles insertObject:[self.theSection.titles objectAtIndex:1] atIndex:1];
         [self insertRows:self forIndexPathRow:1 andSection:[indexPath section]];
         self.theSection.down = YES;
-        NSLog(@"down 2a? = %hhd", self.theSection.down);
-
+        NSLog(@"down 2a? = %i", self.theSection.down);
 
     }
     
@@ -188,7 +182,12 @@ UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
                 self.theSection.down = NO;
         [self.theSection.currentTitles removeObjectAtIndex:1];
         [self deleteRows:self forIndexPathRow:1 andSection:[indexPath section]];
-        NSLog(@"down 2b? = %hhd", self.theSection.down);
+        NSLog(@"down 2b? = %i", self.theSection.down);
+
+    }
+    else if ([[self.theSection.currentTitles objectAtIndex:1] isEqual:@"Sync Now"])
+    {
+        [self showProgressBarAndToolbar];
 
     }
     
@@ -196,5 +195,28 @@ UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
 }
 
+-(IBAction)onCancelTapped:(id)sender
+{
+    //when cancel button tapped
+    NSLog(@"cancel button called");
+    self.tableView.userInteractionEnabled = YES;
+    self.progressView.hidden = YES;
+    self.navigationController.toolbarHidden = YES;
+    
+}
+
+-(void)showProgressBarAndToolbar
+{
+    self.tableView.userInteractionEnabled = NO;
+    self.navigationController.toolbarHidden = NO;
+    self.progressView.hidden = NO;
+
+    UIBarButtonItem *spaceItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    [self.navigationController.toolbar setBarStyle:UIBarStyleDefault];
+    UIBarButtonItem *customItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain    target:self     action:@selector(onCancelTapped:)];
+    NSArray *toolbarItems = [NSArray arrayWithObjects:spaceItem, customItem, spaceItem, nil];
+    
+    [self setToolbarItems:toolbarItems animated:NO];
+}
 
 @end
