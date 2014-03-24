@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface dropDownTableVC : UITableViewController
-
--(void)createArraysForEachSection:(NSInteger)numberOfSections fromSectionRowTitles:(NSArray*)arrayOfSectionArrays;
+@interface dropDownTableVC : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 
 @end

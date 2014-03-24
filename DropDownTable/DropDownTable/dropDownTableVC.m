@@ -8,6 +8,8 @@
 
 #import "dropDownTableVC.h"
 #import "Sections.h"
+#import "Design.h"
+#import "InputMenus.h"
 
 @interface dropDownTableVC ()
 
@@ -15,6 +17,10 @@
 @property (nonatomic, retain) NSDictionary *dictionary;
 @property (nonatomic, retain) Sections *theSection;
 @property (nonatomic, retain) IBOutlet UIProgressView *progressView;
+@property (nonatomic) NSInteger selectedSection;
+@property (nonatomic, retain) Design *design;
+@property (nonatomic, retain) InputMenus *menus;
+
 
 @end
 
@@ -32,43 +38,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //init design
+    self.design = [[Design alloc] init];
+    self.tableView.separatorColor= [UIColor clearColor];
 
     self.progressView.hidden = YES;
-    NSArray *sect0 = [[NSArray alloc] initWithObjects:@"Scan", @"Scan Now", nil];
-    NSArray *sect1 = [[NSArray alloc] initWithObjects:@"Sync", @"Sync Now", nil];
-    NSArray *sect2 = [[NSArray alloc] initWithObjects:@"Settings", @"Write", nil];
+    self.menus = [[InputMenus alloc] init];
+    self.dictionary = [self.menus setUpMenus];
+    self.sections = self.menus.sections;
     
-    self.sections = [[NSMutableArray alloc] initWithCapacity:10];
-    NSArray *sectionsArray =[[NSArray alloc] initWithObjects:sect0, sect1, sect2, nil];
-    
-    [self createArraysForEachSection:[sectionsArray count] fromSectionRowTitles:sectionsArray];
-
-    
+    //large integer well outside of range of number of sections, allows to determine when no sections selected
+    self.selectedSection = 1100;
 }
 
--(void)createArraysForEachSection:(NSInteger)numberOfSections fromSectionRowTitles:(NSArray*)arrayOfSectionArrays
-{
-    for(int i=0; i<numberOfSections; i++)
-    {
-        Sections *sections = [[Sections alloc] initSectionWithTitles:[arrayOfSectionArrays objectAtIndex:i]];
-        [self.sections addObject:sections];
-    }
-    
-    NSLog(@"Section arrays all filled");
-    
-    NSMutableArray *keys = [[NSMutableArray alloc] initWithCapacity:10];
-    for (int i=0; i < [self.sections count]; i++) {
-        [keys addObject:[NSString stringWithFormat:@"%i", i]];
-    }
-    
-    self.dictionary = [[NSDictionary alloc] initWithObjects:self.sections forKeys:keys];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 #pragma mark - Table view data source
 
@@ -89,45 +72,22 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self.tableView setSeparatorColor:[UIColor clearColor]];
     static NSString *CellIdentifier = @"Main";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
-    
-    // Configure the cell.
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.accessoryView = [self customAccessoryViewFor:[UIImage imageNamed:@"plus_button.png"]];
-    
-    [[cell textLabel] setFont:[UIFont fontWithName:@"Lato Light" size:20.0]];
-    [cell setBackgroundColor:[UIColor colorWithRed:0 green:0.573 blue:0.271 alpha:1]];
-    [[cell textLabel] setTextColor:[UIColor whiteColor]];
-    
+
     self.theSection = [self.dictionary objectForKey:[NSString stringWithFormat:@"%li",(long)[indexPath section]]];
     [[cell textLabel] setText:[self.theSection.currentTitles objectAtIndex:[indexPath row]]];
+    
+    //design for main cell
+    [self.design designForMainCell:cell];
 
-    //for all drop down parts of table change color of background so it's obvious
+    //for all drop down parts of table alternative design style
      if ([indexPath row] >0) {
-         //[cell setBackgroundColor:[UIColor whiteColor]];
-         [[cell textLabel] setTextColor:[UIColor whiteColor]];
-         [[cell textLabel] setFont:[UIFont fontWithName:@"Arial" size:16.0]];
-         cell.accessoryView = Nil;
+         [self.design designForDropDownCells:cell];
      }
 
     return cell;
 }
-
-//custom accessory view
--(UIView*)customAccessoryViewFor:(UIImage*)theAccessory
-{
-    UIImageView *accImageView = [[UIImageView alloc] initWithImage:theAccessory];
-    accImageView.userInteractionEnabled = YES;
-    [accImageView setFrame:CGRectMake(0, 0, 28.0, 28.0)];
-
-    return accImageView;
-}
-
          
 - (IBAction)insertRows:(id)sender forIndexPathRow:(NSInteger)row andSection:(NSInteger)section
 {
@@ -142,30 +102,42 @@
 }
 
 
-- (IBAction)deleteRows:(id)sender forIndexPathRow:(NSInteger)row andSection:(NSInteger)section
+- (void)deleteRow:(NSInteger)row andSection:(NSInteger)section
 {
     NSArray *deleteIndexPaths = [NSArray arrayWithObjects:[NSIndexPath indexPathForRow:row inSection:section], nil];
     
-    self.tableView = (UITableView *)self.view;
+    NSLog(@"deleteIndexPaths = %@", deleteIndexPaths);
+    NSLog(@"row %ld, section %ld", (long)row, (long)section);
     
+    self.tableView = (UITableView *)self.view;
+     NSLog(@"the section %@", self.theSection);
     [self.tableView beginUpdates];
     [self.tableView deleteRowsAtIndexPaths:deleteIndexPaths withRowAnimation:UITableViewRowAnimationFade];
+    
     [self.tableView endUpdates];
+    NSLog(@"the section %@", self.theSection);
+    self.theSection = [self.dictionary objectForKey:[NSString stringWithFormat:@"%li", (long)section]];
+        NSLog(@"the section %@", self.theSection);
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
 
         self.theSection = [self.dictionary objectForKey:[NSString stringWithFormat:@"%li",(long)[indexPath section]]];
     NSLog(@"down 1? = %i", self.theSection.down);
     NSLog(@"objectForKey: %@",[NSString stringWithFormat:@"%li",(long)[indexPath section]]);
+    NSLog(@"titles %@ and current titles %@", self.theSection.titles, self.theSection.currentTitles);
     //row0
     if ([indexPath row] == 0 && self.theSection.down == NO)
     {
-        cell.accessoryView = [self customAccessoryViewFor:[UIImage imageNamed:@"minus_button.png"]];
-        [self.theSection.currentTitles insertObject:[self.theSection.titles objectAtIndex:1] atIndex:1];
-        [self insertRows:self forIndexPathRow:1 andSection:[indexPath section]];
+        self.selectedSection = indexPath.section;
+        cell.accessoryView = [self.design deleteCellAccessory];
+        
+        for (int i=1; i<[self.theSection.titles count]; i++) {
+        [self.theSection.currentTitles insertObject:[self.theSection.titles objectAtIndex:i] atIndex:i];
+        [self insertRows:self forIndexPathRow:i andSection:[indexPath section]];
+        }
         self.theSection.down = YES;
         NSLog(@"down 2a? = %i", self.theSection.down);
 
@@ -175,11 +147,15 @@ UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     {
         //
         [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
-        cell.accessoryView = [self customAccessoryViewFor:[UIImage imageNamed:@"plus_button.png"]];
-                self.theSection.down = NO;
-        [self.theSection.currentTitles removeObjectAtIndex:1];
-        [self deleteRows:self forIndexPathRow:1 andSection:[indexPath section]];
+        cell.accessoryView = [self.design addCellAccessory];
+        self.theSection.down = NO;
+        
+        for (int i=([self.theSection.currentTitles count]-1); i>0; i--) {
+        [self.theSection.currentTitles removeObjectAtIndex:i];
+        [self deleteRow:i andSection:[indexPath section]];
+        }
         NSLog(@"down 2b? = %i", self.theSection.down);
+        self.selectedSection = 1100; //set to a number far outside the bounds of the number of sections that actually exist
 
     }
     else if ([[self.theSection.currentTitles objectAtIndex:1] isEqual:@"Sync Now"])
@@ -189,6 +165,18 @@ UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     }
     
      else return;
+    
+}
+
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // rows in selectedSection should be selectable, or if selectedSection = 1100 (i.e none of the sections are currently selected)
+    if(self.selectedSection == 1100 || indexPath.section == self.selectedSection)
+    {
+        return indexPath;
+    }
+    //else all other sections/rows should not be selectable
+    else return nil;
+
     
 }
 

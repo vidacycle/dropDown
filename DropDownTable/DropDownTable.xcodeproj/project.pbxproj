@@ -25,12 +25,8 @@
 		2856852D183CF2E600CB04EB /* DropDownTableTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2856852C183CF2E600CB04EB /* DropDownTableTests.m */; };
 		28568538183CF41200CB04EB /* dropDownTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 28568537183CF41200CB04EB /* dropDownTableVC.m */; };
 		2862C139184653BB00A1FEE2 /* Lato-BolIta.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2862C138184653BB00A1FEE2 /* Lato-BolIta.otf */; };
-		28A839E61889F976005DE923 /* TDDatePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28A839DF1889F976005DE923 /* TDDatePickerController.m */; };
-		28A839E71889F976005DE923 /* TDDatePickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28A839E01889F976005DE923 /* TDDatePickerController.xib */; };
-		28A839E81889F976005DE923 /* TDSemiModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28A839E31889F976005DE923 /* TDSemiModalViewController.m */; };
-		28A839E91889F976005DE923 /* UIViewController+TDSemiModalExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 28A839E51889F976005DE923 /* UIViewController+TDSemiModalExtension.m */; };
-		28A839ED1889FBFA005DE923 /* TDProgressBarController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28A839EC1889FBFA005DE923 /* TDProgressBarController.xib */; };
-		28A839F01889FEC4005DE923 /* TDProgressBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28A839EF1889FEC4005DE923 /* TDProgressBarController.m */; };
+		288EF72A18E0580F003FC7EE /* InputMenus.m in Sources */ = {isa = PBXBuildFile; fileRef = 288EF72918E0580F003FC7EE /* InputMenus.m */; };
+		28C0C80018E042C50050E419 /* Design.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C0C7FF18E042C50050E419 /* Design.m */; };
 		28CCE51718490AAE0099D77E /* Sections.m in Sources */ = {isa = PBXBuildFile; fileRef = 28CCE51618490AAE0099D77E /* Sections.m */; };
 		28EE6070183E79F700AB8E9B /* Lato-Lig.otf in Resources */ = {isa = PBXBuildFile; fileRef = 28EE606F183E79F700AB8E9B /* Lato-Lig.otf */; };
 /* End PBXBuildFile section */
@@ -69,17 +65,10 @@
 		28568536183CF41200CB04EB /* dropDownTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dropDownTableVC.h; sourceTree = "<group>"; };
 		28568537183CF41200CB04EB /* dropDownTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dropDownTableVC.m; sourceTree = "<group>"; };
 		2862C138184653BB00A1FEE2 /* Lato-BolIta.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BolIta.otf"; sourceTree = "<group>"; };
-		28A839DE1889F976005DE923 /* TDDatePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDDatePickerController.h; sourceTree = "<group>"; };
-		28A839DF1889F976005DE923 /* TDDatePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDDatePickerController.m; sourceTree = "<group>"; };
-		28A839E01889F976005DE923 /* TDDatePickerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TDDatePickerController.xib; sourceTree = "<group>"; };
-		28A839E11889F976005DE923 /* TDSemiModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSemiModal.h; sourceTree = "<group>"; };
-		28A839E21889F976005DE923 /* TDSemiModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSemiModalViewController.h; sourceTree = "<group>"; };
-		28A839E31889F976005DE923 /* TDSemiModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSemiModalViewController.m; sourceTree = "<group>"; };
-		28A839E41889F976005DE923 /* UIViewController+TDSemiModalExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+TDSemiModalExtension.h"; sourceTree = "<group>"; };
-		28A839E51889F976005DE923 /* UIViewController+TDSemiModalExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+TDSemiModalExtension.m"; sourceTree = "<group>"; };
-		28A839EC1889FBFA005DE923 /* TDProgressBarController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TDProgressBarController.xib; sourceTree = "<group>"; };
-		28A839EE1889FEC4005DE923 /* TDProgressBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDProgressBarController.h; sourceTree = "<group>"; };
-		28A839EF1889FEC4005DE923 /* TDProgressBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDProgressBarController.m; sourceTree = "<group>"; };
+		288EF72818E0580F003FC7EE /* InputMenus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InputMenus.h; path = ../InputMenus.h; sourceTree = "<group>"; };
+		288EF72918E0580F003FC7EE /* InputMenus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InputMenus.m; path = ../InputMenus.m; sourceTree = "<group>"; };
+		28C0C7FE18E042C50050E419 /* Design.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Design.h; sourceTree = "<group>"; };
+		28C0C7FF18E042C50050E419 /* Design.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Design.m; sourceTree = "<group>"; };
 		28CCE51518490AAD0099D77E /* Sections.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sections.h; sourceTree = "<group>"; };
 		28CCE51618490AAE0099D77E /* Sections.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sections.m; sourceTree = "<group>"; };
 		28EE606F183E79F700AB8E9B /* Lato-Lig.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Lig.otf"; sourceTree = "<group>"; };
@@ -142,15 +131,9 @@
 		28568504183CF2E600CB04EB /* DropDownTable */ = {
 			isa = PBXGroup;
 			children = (
-				28A839DD1889F976005DE923 /* TDSemiModal */,
-				2856850D183CF2E600CB04EB /* dropDownAppDelegate.h */,
-				2856850E183CF2E600CB04EB /* dropDownAppDelegate.m */,
-				28568510183CF2E600CB04EB /* Main_iPhone.storyboard */,
-				28568536183CF41200CB04EB /* dropDownTableVC.h */,
-				28568537183CF41200CB04EB /* dropDownTableVC.m */,
-				28CCE51518490AAD0099D77E /* Sections.h */,
-				28CCE51618490AAE0099D77E /* Sections.m */,
-				28568513183CF2E600CB04EB /* Main_iPad.storyboard */,
+				288EF72C18E05D73003FC7EE /* Model */,
+				288EF72D18E05D7B003FC7EE /* View */,
+				288EF72E18E05D8E003FC7EE /* Controller */,
 				28568519183CF2E600CB04EB /* Images.xcassets */,
 				28568505183CF2E600CB04EB /* Supporting Files */,
 			);
@@ -160,6 +143,8 @@
 		28568505183CF2E600CB04EB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2856850D183CF2E600CB04EB /* dropDownAppDelegate.h */,
+				2856850E183CF2E600CB04EB /* dropDownAppDelegate.m */,
 				28EE606F183E79F700AB8E9B /* Lato-Lig.otf */,
 				28568506183CF2E600CB04EB /* DropDownTable-Info.plist */,
 				2862C138184653BB00A1FEE2 /* Lato-BolIta.otf */,
@@ -190,22 +175,35 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		28A839DD1889F976005DE923 /* TDSemiModal */ = {
+		288EF72C18E05D73003FC7EE /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				28A839DE1889F976005DE923 /* TDDatePickerController.h */,
-				28A839DF1889F976005DE923 /* TDDatePickerController.m */,
-				28A839E01889F976005DE923 /* TDDatePickerController.xib */,
-				28A839E11889F976005DE923 /* TDSemiModal.h */,
-				28A839E21889F976005DE923 /* TDSemiModalViewController.h */,
-				28A839E31889F976005DE923 /* TDSemiModalViewController.m */,
-				28A839E41889F976005DE923 /* UIViewController+TDSemiModalExtension.h */,
-				28A839E51889F976005DE923 /* UIViewController+TDSemiModalExtension.m */,
-				28A839EE1889FEC4005DE923 /* TDProgressBarController.h */,
-				28A839EF1889FEC4005DE923 /* TDProgressBarController.m */,
-				28A839EC1889FBFA005DE923 /* TDProgressBarController.xib */,
+				28C0C7FE18E042C50050E419 /* Design.h */,
+				28C0C7FF18E042C50050E419 /* Design.m */,
+				288EF72818E0580F003FC7EE /* InputMenus.h */,
+				288EF72918E0580F003FC7EE /* InputMenus.m */,
+				28CCE51518490AAD0099D77E /* Sections.h */,
+				28CCE51618490AAE0099D77E /* Sections.m */,
 			);
-			path = TDSemiModal;
+			name = Model;
+			sourceTree = "<group>";
+		};
+		288EF72D18E05D7B003FC7EE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				28568513183CF2E600CB04EB /* Main_iPad.storyboard */,
+				28568510183CF2E600CB04EB /* Main_iPhone.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		288EF72E18E05D8E003FC7EE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				28568536183CF41200CB04EB /* dropDownTableVC.h */,
+				28568537183CF41200CB04EB /* dropDownTableVC.m */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,11 +285,9 @@
 			files = (
 				28321713183F8B8200D74380 /* minus_button.png in Resources */,
 				28568515183CF2E600CB04EB /* Main_iPad.storyboard in Resources */,
-				28A839ED1889FBFA005DE923 /* TDProgressBarController.xib in Resources */,
 				28321715183F8B8800D74380 /* plus_button.png in Resources */,
 				2856851A183CF2E600CB04EB /* Images.xcassets in Resources */,
 				28568512183CF2E600CB04EB /* Main_iPhone.storyboard in Resources */,
-				28A839E71889F976005DE923 /* TDDatePickerController.xib in Resources */,
 				28568509183CF2E600CB04EB /* InfoPlist.strings in Resources */,
 				2862C139184653BB00A1FEE2 /* Lato-BolIta.otf in Resources */,
 				28EE6070183E79F700AB8E9B /* Lato-Lig.otf in Resources */,
@@ -314,11 +310,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2856850B183CF2E600CB04EB /* main.m in Sources */,
-				28A839E91889F976005DE923 /* UIViewController+TDSemiModalExtension.m in Sources */,
-				28A839F01889FEC4005DE923 /* TDProgressBarController.m in Sources */,
+				288EF72A18E0580F003FC7EE /* InputMenus.m in Sources */,
+				28C0C80018E042C50050E419 /* Design.m in Sources */,
 				28CCE51718490AAE0099D77E /* Sections.m in Sources */,
-				28A839E81889F976005DE923 /* TDSemiModalViewController.m in Sources */,
-				28A839E61889F976005DE923 /* TDDatePickerController.m in Sources */,
 				2856850F183CF2E600CB04EB /* dropDownAppDelegate.m in Sources */,
 				28568538183CF41200CB04EB /* dropDownTableVC.m in Sources */,
 			);
