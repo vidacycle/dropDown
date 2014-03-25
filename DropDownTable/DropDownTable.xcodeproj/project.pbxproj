@@ -7,14 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		28321713183F8B8200D74380 /* minus_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 28321712183F8B8200D74380 /* minus_button.png */; };
-		28321715183F8B8800D74380 /* plus_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 28321714183F8B8800D74380 /* plus_button.png */; };
 		285684FF183CF2E600CB04EB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 285684FE183CF2E600CB04EB /* Foundation.framework */; };
 		28568501183CF2E600CB04EB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28568500183CF2E600CB04EB /* CoreGraphics.framework */; };
 		28568503183CF2E600CB04EB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28568502183CF2E600CB04EB /* UIKit.framework */; };
 		28568509183CF2E600CB04EB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 28568507183CF2E600CB04EB /* InfoPlist.strings */; };
-		2856850B183CF2E600CB04EB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2856850A183CF2E600CB04EB /* main.m */; };
-		2856850F183CF2E600CB04EB /* dropDownAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2856850E183CF2E600CB04EB /* dropDownAppDelegate.m */; };
 		28568512183CF2E600CB04EB /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28568510183CF2E600CB04EB /* Main_iPhone.storyboard */; };
 		28568515183CF2E600CB04EB /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28568513183CF2E600CB04EB /* Main_iPad.storyboard */; };
 		2856851A183CF2E600CB04EB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28568519183CF2E600CB04EB /* Images.xcassets */; };
@@ -23,19 +19,24 @@
 		28568523183CF2E600CB04EB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28568502183CF2E600CB04EB /* UIKit.framework */; };
 		2856852B183CF2E600CB04EB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 28568529183CF2E600CB04EB /* InfoPlist.strings */; };
 		2856852D183CF2E600CB04EB /* DropDownTableTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2856852C183CF2E600CB04EB /* DropDownTableTests.m */; };
-		28568538183CF41200CB04EB /* dropDownTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 28568537183CF41200CB04EB /* dropDownTableVC.m */; };
-		285D592C18E1F7090043FC70 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 285D592B18E1F7090043FC70 /* ImageViewController.m */; };
-		285D593118E1F9AC0043FC70 /* HygroSkin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 285D592D18E1F9AC0043FC70 /* HygroSkin.jpg */; };
-		285D593218E1F9AC0043FC70 /* IRR.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 285D592E18E1F9AC0043FC70 /* IRR.jpg */; };
-		285D593318E1F9AC0043FC70 /* Wonderpus.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 285D592F18E1F9AC0043FC70 /* Wonderpus.jpg */; };
-		285D593418E1F9AC0043FC70 /* GoodNight.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 285D593018E1F9AC0043FC70 /* GoodNight.jpg */; };
-		2862C139184653BB00A1FEE2 /* Lato-BolIta.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2862C138184653BB00A1FEE2 /* Lato-BolIta.otf */; };
-		288EF72A18E0580F003FC7EE /* InputMenus.m in Sources */ = {isa = PBXBuildFile; fileRef = 288EF72918E0580F003FC7EE /* InputMenus.m */; };
-		28A155AF18E1D17700B08114 /* AddDeleteRows.m in Sources */ = {isa = PBXBuildFile; fileRef = 28A155AE18E1D17700B08114 /* AddDeleteRows.m */; };
-		28A155B318E1DA1400B08114 /* DetermineSegues.m in Sources */ = {isa = PBXBuildFile; fileRef = 28A155B218E1DA1400B08114 /* DetermineSegues.m */; };
-		28C0C80018E042C50050E419 /* Design.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C0C7FF18E042C50050E419 /* Design.m */; };
-		28CCE51718490AAE0099D77E /* Sections.m in Sources */ = {isa = PBXBuildFile; fileRef = 28CCE51618490AAE0099D77E /* Sections.m */; };
-		28EE6070183E79F700AB8E9B /* Lato-Lig.otf in Resources */ = {isa = PBXBuildFile; fileRef = 28EE606F183E79F700AB8E9B /* Lato-Lig.otf */; };
+		285D594118E202180043FC70 /* AddDeleteRows.m in Sources */ = {isa = PBXBuildFile; fileRef = 285D593818E202180043FC70 /* AddDeleteRows.m */; };
+		285D594218E202180043FC70 /* Design.m in Sources */ = {isa = PBXBuildFile; fileRef = 285D593A18E202180043FC70 /* Design.m */; };
+		285D594318E202180043FC70 /* DetermineSegues.m in Sources */ = {isa = PBXBuildFile; fileRef = 285D593C18E202180043FC70 /* DetermineSegues.m */; };
+		285D594418E202180043FC70 /* dropDownTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 285D593E18E202180043FC70 /* dropDownTableVC.m */; };
+		285D594518E202180043FC70 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 285D594018E202180043FC70 /* ImageViewController.m */; };
+		285D594C18E202AA0043FC70 /* dropDownAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 285D594818E202AA0043FC70 /* dropDownAppDelegate.m */; };
+		285D594D18E202AA0043FC70 /* DropDownTable-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 285D594918E202AA0043FC70 /* DropDownTable-Info.plist */; };
+		285D594E18E202AA0043FC70 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 285D594B18E202AA0043FC70 /* main.m */; };
+		285D595718E202C60043FC70 /* GoodNight.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 285D594F18E202C60043FC70 /* GoodNight.jpg */; };
+		285D595818E202C60043FC70 /* HygroSkin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 285D595018E202C60043FC70 /* HygroSkin.jpg */; };
+		285D595918E202C60043FC70 /* IRR.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 285D595118E202C60043FC70 /* IRR.jpg */; };
+		285D595A18E202C60043FC70 /* Lato-BolIta.otf in Resources */ = {isa = PBXBuildFile; fileRef = 285D595218E202C60043FC70 /* Lato-BolIta.otf */; };
+		285D595B18E202C60043FC70 /* Lato-Lig.otf in Resources */ = {isa = PBXBuildFile; fileRef = 285D595318E202C60043FC70 /* Lato-Lig.otf */; };
+		285D595C18E202C60043FC70 /* minus_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 285D595418E202C60043FC70 /* minus_button.png */; };
+		285D595D18E202C60043FC70 /* plus_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 285D595518E202C60043FC70 /* plus_button.png */; };
+		285D595E18E202C60043FC70 /* Wonderpus.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 285D595618E202C60043FC70 /* Wonderpus.jpg */; };
+		285D596318E2030D0043FC70 /* InputMenus.m in Sources */ = {isa = PBXBuildFile; fileRef = 285D596018E2030D0043FC70 /* InputMenus.m */; };
+		285D596418E2030D0043FC70 /* Sections.m in Sources */ = {isa = PBXBuildFile; fileRef = 285D596218E2030D0043FC70 /* Sections.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,46 +50,46 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		28321712183F8B8200D74380 /* minus_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = minus_button.png; sourceTree = "<group>"; };
-		28321714183F8B8800D74380 /* plus_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus_button.png; sourceTree = "<group>"; };
 		285684FB183CF2E600CB04EB /* DropDownTable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DropDownTable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		285684FE183CF2E600CB04EB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		28568500183CF2E600CB04EB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28568502183CF2E600CB04EB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		28568506183CF2E600CB04EB /* DropDownTable-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DropDownTable-Info.plist"; sourceTree = "<group>"; };
 		28568508183CF2E600CB04EB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		2856850A183CF2E600CB04EB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		2856850C183CF2E600CB04EB /* DropDownTable-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DropDownTable-Prefix.pch"; sourceTree = "<group>"; };
-		2856850D183CF2E600CB04EB /* dropDownAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dropDownAppDelegate.h; sourceTree = "<group>"; };
-		2856850E183CF2E600CB04EB /* dropDownAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = dropDownAppDelegate.m; sourceTree = "<group>"; };
 		28568511183CF2E600CB04EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		28568514183CF2E600CB04EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		28568519183CF2E600CB04EB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		28568519183CF2E600CB04EB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "Supporting Files/Images.xcassets"; sourceTree = "<group>"; };
 		2856851F183CF2E600CB04EB /* DropDownTableTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DropDownTableTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		28568520183CF2E600CB04EB /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		28568528183CF2E600CB04EB /* DropDownTableTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DropDownTableTests-Info.plist"; sourceTree = "<group>"; };
 		2856852A183CF2E600CB04EB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2856852C183CF2E600CB04EB /* DropDownTableTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DropDownTableTests.m; sourceTree = "<group>"; };
-		28568536183CF41200CB04EB /* dropDownTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dropDownTableVC.h; sourceTree = "<group>"; };
-		28568537183CF41200CB04EB /* dropDownTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dropDownTableVC.m; sourceTree = "<group>"; };
-		285D592A18E1F7090043FC70 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
-		285D592B18E1F7090043FC70 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
-		285D592D18E1F9AC0043FC70 /* HygroSkin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = HygroSkin.jpg; sourceTree = "<group>"; };
-		285D592E18E1F9AC0043FC70 /* IRR.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IRR.jpg; sourceTree = "<group>"; };
-		285D592F18E1F9AC0043FC70 /* Wonderpus.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Wonderpus.jpg; sourceTree = "<group>"; };
-		285D593018E1F9AC0043FC70 /* GoodNight.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GoodNight.jpg; sourceTree = "<group>"; };
-		2862C138184653BB00A1FEE2 /* Lato-BolIta.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BolIta.otf"; sourceTree = "<group>"; };
-		288EF72818E0580F003FC7EE /* InputMenus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InputMenus.h; path = ../InputMenus.h; sourceTree = "<group>"; };
-		288EF72918E0580F003FC7EE /* InputMenus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InputMenus.m; path = ../InputMenus.m; sourceTree = "<group>"; };
-		28A155AD18E1D17700B08114 /* AddDeleteRows.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddDeleteRows.h; sourceTree = "<group>"; };
-		28A155AE18E1D17700B08114 /* AddDeleteRows.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDeleteRows.m; sourceTree = "<group>"; };
-		28A155B118E1DA1400B08114 /* DetermineSegues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetermineSegues.h; sourceTree = "<group>"; };
-		28A155B218E1DA1400B08114 /* DetermineSegues.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetermineSegues.m; sourceTree = "<group>"; };
-		28C0C7FE18E042C50050E419 /* Design.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Design.h; sourceTree = "<group>"; };
-		28C0C7FF18E042C50050E419 /* Design.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Design.m; sourceTree = "<group>"; };
-		28CCE51518490AAD0099D77E /* Sections.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sections.h; sourceTree = "<group>"; };
-		28CCE51618490AAE0099D77E /* Sections.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sections.m; sourceTree = "<group>"; };
-		28EE606F183E79F700AB8E9B /* Lato-Lig.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Lig.otf"; sourceTree = "<group>"; };
+		285D593718E202180043FC70 /* AddDeleteRows.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddDeleteRows.h; path = Controller/AddDeleteRows.h; sourceTree = "<group>"; };
+		285D593818E202180043FC70 /* AddDeleteRows.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddDeleteRows.m; path = Controller/AddDeleteRows.m; sourceTree = "<group>"; };
+		285D593918E202180043FC70 /* Design.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Design.h; path = Controller/Design.h; sourceTree = "<group>"; };
+		285D593A18E202180043FC70 /* Design.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Design.m; path = Controller/Design.m; sourceTree = "<group>"; };
+		285D593B18E202180043FC70 /* DetermineSegues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetermineSegues.h; path = Controller/DetermineSegues.h; sourceTree = "<group>"; };
+		285D593C18E202180043FC70 /* DetermineSegues.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetermineSegues.m; path = Controller/DetermineSegues.m; sourceTree = "<group>"; };
+		285D593D18E202180043FC70 /* dropDownTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = dropDownTableVC.h; path = Controller/dropDownTableVC.h; sourceTree = "<group>"; };
+		285D593E18E202180043FC70 /* dropDownTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = dropDownTableVC.m; path = Controller/dropDownTableVC.m; sourceTree = "<group>"; };
+		285D593F18E202180043FC70 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageViewController.h; path = Controller/ImageViewController.h; sourceTree = "<group>"; };
+		285D594018E202180043FC70 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageViewController.m; path = Controller/ImageViewController.m; sourceTree = "<group>"; };
+		285D594718E202AA0043FC70 /* dropDownAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = dropDownAppDelegate.h; path = "Supporting Files/dropDownAppDelegate.h"; sourceTree = "<group>"; };
+		285D594818E202AA0043FC70 /* dropDownAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = dropDownAppDelegate.m; path = "Supporting Files/dropDownAppDelegate.m"; sourceTree = "<group>"; };
+		285D594918E202AA0043FC70 /* DropDownTable-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "DropDownTable-Info.plist"; path = "Supporting Files/DropDownTable-Info.plist"; sourceTree = "<group>"; };
+		285D594A18E202AA0043FC70 /* DropDownTable-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DropDownTable-Prefix.pch"; sourceTree = "<group>"; };
+		285D594B18E202AA0043FC70 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Supporting Files/main.m"; sourceTree = "<group>"; };
+		285D594F18E202C60043FC70 /* GoodNight.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = GoodNight.jpg; path = "Supporting Files/fonts&images/GoodNight.jpg"; sourceTree = "<group>"; };
+		285D595018E202C60043FC70 /* HygroSkin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = HygroSkin.jpg; path = "Supporting Files/fonts&images/HygroSkin.jpg"; sourceTree = "<group>"; };
+		285D595118E202C60043FC70 /* IRR.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = IRR.jpg; path = "Supporting Files/fonts&images/IRR.jpg"; sourceTree = "<group>"; };
+		285D595218E202C60043FC70 /* Lato-BolIta.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-BolIta.otf"; path = "Supporting Files/fonts&images/Lato-BolIta.otf"; sourceTree = "<group>"; };
+		285D595318E202C60043FC70 /* Lato-Lig.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Lig.otf"; path = "Supporting Files/fonts&images/Lato-Lig.otf"; sourceTree = "<group>"; };
+		285D595418E202C60043FC70 /* minus_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = minus_button.png; path = "Supporting Files/fonts&images/minus_button.png"; sourceTree = "<group>"; };
+		285D595518E202C60043FC70 /* plus_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = plus_button.png; path = "Supporting Files/fonts&images/plus_button.png"; sourceTree = "<group>"; };
+		285D595618E202C60043FC70 /* Wonderpus.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Wonderpus.jpg; path = "Supporting Files/fonts&images/Wonderpus.jpg"; sourceTree = "<group>"; };
+		285D595F18E2030D0043FC70 /* InputMenus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InputMenus.h; path = Model/InputMenus.h; sourceTree = "<group>"; };
+		285D596018E2030D0043FC70 /* InputMenus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InputMenus.m; path = Model/InputMenus.m; sourceTree = "<group>"; };
+		285D596118E2030D0043FC70 /* Sections.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Sections.h; path = Model/Sections.h; sourceTree = "<group>"; };
+		285D596218E2030D0043FC70 /* Sections.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Sections.m; path = Model/Sections.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,10 +149,9 @@
 		28568504183CF2E600CB04EB /* DropDownTable */ = {
 			isa = PBXGroup;
 			children = (
+				285D594618E202250043FC70 /* Controller */,
 				288EF72C18E05D73003FC7EE /* Model */,
 				288EF72D18E05D7B003FC7EE /* View */,
-				288EF72E18E05D8E003FC7EE /* Controller */,
-				28568519183CF2E600CB04EB /* Images.xcassets */,
 				28568505183CF2E600CB04EB /* Supporting Files */,
 			);
 			path = DropDownTable;
@@ -160,12 +160,13 @@
 		28568505183CF2E600CB04EB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				2856850D183CF2E600CB04EB /* dropDownAppDelegate.h */,
-				2856850E183CF2E600CB04EB /* dropDownAppDelegate.m */,
-				28568506183CF2E600CB04EB /* DropDownTable-Info.plist */,
+				285D594A18E202AA0043FC70 /* DropDownTable-Prefix.pch */,
+				28568519183CF2E600CB04EB /* Images.xcassets */,
+				285D594718E202AA0043FC70 /* dropDownAppDelegate.h */,
+				285D594818E202AA0043FC70 /* dropDownAppDelegate.m */,
+				285D594918E202AA0043FC70 /* DropDownTable-Info.plist */,
+				285D594B18E202AA0043FC70 /* main.m */,
 				28568507183CF2E600CB04EB /* InfoPlist.strings */,
-				2856850A183CF2E600CB04EB /* main.m */,
-				2856850C183CF2E600CB04EB /* DropDownTable-Prefix.pch */,
 				28A155B018E1D6BB00B08114 /* Fonts&Images */,
 			);
 			name = "Supporting Files";
@@ -189,13 +190,30 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		285D594618E202250043FC70 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				285D593718E202180043FC70 /* AddDeleteRows.h */,
+				285D593818E202180043FC70 /* AddDeleteRows.m */,
+				285D593918E202180043FC70 /* Design.h */,
+				285D593A18E202180043FC70 /* Design.m */,
+				285D593B18E202180043FC70 /* DetermineSegues.h */,
+				285D593C18E202180043FC70 /* DetermineSegues.m */,
+				285D593D18E202180043FC70 /* dropDownTableVC.h */,
+				285D593E18E202180043FC70 /* dropDownTableVC.m */,
+				285D593F18E202180043FC70 /* ImageViewController.h */,
+				285D594018E202180043FC70 /* ImageViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		288EF72C18E05D73003FC7EE /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				288EF72818E0580F003FC7EE /* InputMenus.h */,
-				288EF72918E0580F003FC7EE /* InputMenus.m */,
-				28CCE51518490AAD0099D77E /* Sections.h */,
-				28CCE51618490AAE0099D77E /* Sections.m */,
+				285D595F18E2030D0043FC70 /* InputMenus.h */,
+				285D596018E2030D0043FC70 /* InputMenus.m */,
+				285D596118E2030D0043FC70 /* Sections.h */,
+				285D596218E2030D0043FC70 /* Sections.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -209,34 +227,17 @@
 			name = View;
 			sourceTree = "<group>";
 		};
-		288EF72E18E05D8E003FC7EE /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				28C0C7FE18E042C50050E419 /* Design.h */,
-				28C0C7FF18E042C50050E419 /* Design.m */,
-				28568536183CF41200CB04EB /* dropDownTableVC.h */,
-				28568537183CF41200CB04EB /* dropDownTableVC.m */,
-				285D592A18E1F7090043FC70 /* ImageViewController.h */,
-				285D592B18E1F7090043FC70 /* ImageViewController.m */,
-				28A155B118E1DA1400B08114 /* DetermineSegues.h */,
-				28A155B218E1DA1400B08114 /* DetermineSegues.m */,
-				28A155AD18E1D17700B08114 /* AddDeleteRows.h */,
-				28A155AE18E1D17700B08114 /* AddDeleteRows.m */,
-			);
-			name = Controller;
-			sourceTree = "<group>";
-		};
 		28A155B018E1D6BB00B08114 /* Fonts&Images */ = {
 			isa = PBXGroup;
 			children = (
-				285D592D18E1F9AC0043FC70 /* HygroSkin.jpg */,
-				285D592E18E1F9AC0043FC70 /* IRR.jpg */,
-				285D592F18E1F9AC0043FC70 /* Wonderpus.jpg */,
-				285D593018E1F9AC0043FC70 /* GoodNight.jpg */,
-				28EE606F183E79F700AB8E9B /* Lato-Lig.otf */,
-				2862C138184653BB00A1FEE2 /* Lato-BolIta.otf */,
-				28321712183F8B8200D74380 /* minus_button.png */,
-				28321714183F8B8800D74380 /* plus_button.png */,
+				285D594F18E202C60043FC70 /* GoodNight.jpg */,
+				285D595018E202C60043FC70 /* HygroSkin.jpg */,
+				285D595118E202C60043FC70 /* IRR.jpg */,
+				285D595218E202C60043FC70 /* Lato-BolIta.otf */,
+				285D595318E202C60043FC70 /* Lato-Lig.otf */,
+				285D595418E202C60043FC70 /* minus_button.png */,
+				285D595518E202C60043FC70 /* plus_button.png */,
+				285D595618E202C60043FC70 /* Wonderpus.jpg */,
 			);
 			name = "Fonts&Images";
 			sourceTree = "<group>";
@@ -318,18 +319,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28321713183F8B8200D74380 /* minus_button.png in Resources */,
-				285D593318E1F9AC0043FC70 /* Wonderpus.jpg in Resources */,
 				28568515183CF2E600CB04EB /* Main_iPad.storyboard in Resources */,
-				28321715183F8B8800D74380 /* plus_button.png in Resources */,
-				285D593418E1F9AC0043FC70 /* GoodNight.jpg in Resources */,
-				285D593218E1F9AC0043FC70 /* IRR.jpg in Resources */,
+				285D595718E202C60043FC70 /* GoodNight.jpg in Resources */,
+				285D595818E202C60043FC70 /* HygroSkin.jpg in Resources */,
+				285D595918E202C60043FC70 /* IRR.jpg in Resources */,
+				285D595C18E202C60043FC70 /* minus_button.png in Resources */,
+				285D595B18E202C60043FC70 /* Lato-Lig.otf in Resources */,
+				285D595A18E202C60043FC70 /* Lato-BolIta.otf in Resources */,
+				285D594D18E202AA0043FC70 /* DropDownTable-Info.plist in Resources */,
 				2856851A183CF2E600CB04EB /* Images.xcassets in Resources */,
+				285D595E18E202C60043FC70 /* Wonderpus.jpg in Resources */,
+				285D595D18E202C60043FC70 /* plus_button.png in Resources */,
 				28568512183CF2E600CB04EB /* Main_iPhone.storyboard in Resources */,
 				28568509183CF2E600CB04EB /* InfoPlist.strings in Resources */,
-				2862C139184653BB00A1FEE2 /* Lato-BolIta.otf in Resources */,
-				285D593118E1F9AC0043FC70 /* HygroSkin.jpg in Resources */,
-				28EE6070183E79F700AB8E9B /* Lato-Lig.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,15 +350,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2856850B183CF2E600CB04EB /* main.m in Sources */,
-				288EF72A18E0580F003FC7EE /* InputMenus.m in Sources */,
-				28A155AF18E1D17700B08114 /* AddDeleteRows.m in Sources */,
-				28C0C80018E042C50050E419 /* Design.m in Sources */,
-				28CCE51718490AAE0099D77E /* Sections.m in Sources */,
-				28A155B318E1DA1400B08114 /* DetermineSegues.m in Sources */,
-				285D592C18E1F7090043FC70 /* ImageViewController.m in Sources */,
-				2856850F183CF2E600CB04EB /* dropDownAppDelegate.m in Sources */,
-				28568538183CF41200CB04EB /* dropDownTableVC.m in Sources */,
+				285D594318E202180043FC70 /* DetermineSegues.m in Sources */,
+				285D594C18E202AA0043FC70 /* dropDownAppDelegate.m in Sources */,
+				285D594418E202180043FC70 /* dropDownTableVC.m in Sources */,
+				285D596418E2030D0043FC70 /* Sections.m in Sources */,
+				285D594218E202180043FC70 /* Design.m in Sources */,
+				285D594118E202180043FC70 /* AddDeleteRows.m in Sources */,
+				285D594518E202180043FC70 /* ImageViewController.m in Sources */,
+				285D594E18E202AA0043FC70 /* main.m in Sources */,
+				285D596318E2030D0043FC70 /* InputMenus.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
