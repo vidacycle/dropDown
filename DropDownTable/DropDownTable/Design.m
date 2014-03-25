@@ -48,10 +48,10 @@
 
 -(void)designForDropDownCells:(UITableViewCell*)theDropDownCells
 {
-    //for all drop down parts of table change color of background so it's obvious
+    //for all drop down parts of table change appearance so it's obvious
     //[theDropDownCells setBackgroundColor:[UIColor whiteColor]];
     theDropDownCells.textLabel.textColor = [UIColor whiteColor];
-    theDropDownCells.textLabel.font = [UIFont fontWithName:@"Lato Light" size:16.0];
+    theDropDownCells.textLabel.font = [UIFont fontWithName:@"Gill Sans" size:16.0];
     theDropDownCells.accessoryView = Nil;
     theDropDownCells.textLabel.textAlignment = NSTextAlignmentRight;
 }

@@ -4,6 +4,34 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
+        <!--Image View Controller-->
+        <scene sceneID="y8i-UU-27n">
+            <objects>
+                <viewController id="aka-Xg-QKR" customClass="ImageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YlL-nn-fDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="zhr-HB-cxa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="byL-yy-sSn">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ynZ-kN-ygh">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Xl8-R0-Fqn"/>
+                    <connections>
+                        <outlet property="imageView" destination="ynZ-kN-ygh" id="Hxb-tw-E4Z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CPV-Wx-eaU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1183" y="-405"/>
+        </scene>
         <!--Drop Down TableVC-->
         <scene sceneID="Dj0-5e-9jh">
             <objects>
@@ -34,11 +62,40 @@
                     <navigationItem key="navigationItem" id="gZe-kM-mAD"/>
                     <connections>
                         <outlet property="progressView" destination="diw-9O-bz3" id="oMk-Ns-bvU"/>
+                        <segue destination="aka-Xg-QKR" kind="push" identifier="1" id="tJE-5i-a2u"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bfP-dr-1Ji" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1303" y="64"/>
+            <point key="canvasLocation" x="617" y="-180"/>
+        </scene>
+        <!--Image View Controller-->
+        <scene sceneID="MkB-Kc-UE6">
+            <objects>
+                <viewController id="296-bI-RG9" customClass="ImageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6Wa-5J-SJV"/>
+                        <viewControllerLayoutGuide type="bottom" id="gBu-fL-dIP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Toz-Sg-cet">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dJE-19-D6G">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Hus-kl-TJS"/>
+                    <connections>
+                        <outlet property="imageView2" destination="dJE-19-D6G" id="dzg-Uh-3Er"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9FA-td-iFY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1206" y="264"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="GrA-Ga-Pac">
@@ -56,7 +113,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zEY-rX-q7o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="777" y="64"/>
+            <point key="canvasLocation" x="91" y="-180"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

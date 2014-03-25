@@ -10,6 +10,8 @@
 #import "Sections.h"
 #import "Design.h"
 #import "InputMenus.h"
+#import "AddDeleteRows.h"
+#import "ImageViewController.h"
 
 @interface dropDownTableVC ()
 
@@ -20,6 +22,7 @@
 @property (nonatomic) NSInteger selectedSection;
 @property (nonatomic, retain) Design *design;
 @property (nonatomic, retain) InputMenus *menus;
+@property (nonatomic, retain) NSString *theCellTitle;
 
 
 @end
@@ -42,8 +45,9 @@
     //init design
     self.design = [[Design alloc] init];
     self.tableView.separatorColor= [UIColor clearColor];
-
     self.progressView.hidden = YES;
+    
+    //get data from Model
     self.menus = [[InputMenus alloc] init];
     self.dictionary = [self.menus setUpMenus];
     self.sections = self.menus.sections;
@@ -98,11 +102,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    AddDeleteRows *handleRows = [[AddDeleteRows alloc] init];
+    
 
-        self.theSection = [self.dictionary objectForKey:[NSString stringWithFormat:@"%li",(long)[indexPath section]]];
-    NSLog(@"down 1? = %i", self.theSection.down);
-    NSLog(@"objectForKey: %@",[NSString stringWithFormat:@"%li",(long)[indexPath section]]);
-    NSLog(@"titles %@ and current titles %@", self.theSection.titles, self.theSection.currentTitles);
+    self.theSection = [self.dictionary objectForKey:[NSString stringWithFormat:@"%li",(long)[indexPath section]]];
+    
     //if the main menu cell is selected
     if ([indexPath row] == 0 && self.theSection.down == NO)
     {
@@ -111,65 +115,67 @@
         
         //add all drop down cells for this section
         for (int i=1; i<[self.theSection.titles count]; i++) {
-        [self.theSection.currentTitles insertObject:[self.theSection.titles objectAtIndex:i] atIndex:i];
-        [self insertRow:i andSection:[indexPath section]];
+            [self.theSection.currentTitles insertObject:[self.theSection.titles objectAtIndex:i] atIndex:i];
+            [handleRows insertRow:i andSection:[indexPath section] forTableView:self.tableView];
         }
         self.theSection.down = YES;
-        NSLog(@"down 2a? = %i", self.theSection.down);
 
     }
     
     //if the main menu cell is de-selected
     else if ([indexPath row] == 0 && self.theSection.down == YES && [self.theSection.currentTitles count] >1)
     {
-        //
         [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
         cell.accessoryView = [self.design addCellAccessory];
         self.theSection.down = NO;
-        
+
         //remove all drop down cells for this section
-        for (int i=([self.theSection.currentTitles count]-1); i>0; i--) {
-        [self.theSection.currentTitles removeObjectAtIndex:i];
-        [self deleteRow:i andSection:[indexPath section]];
+        for (int i=([self.theSection.currentTitles count]-1); i>0; i--)
+        {
+            [self.theSection.currentTitles removeObjectAtIndex:i];
+
+            [handleRows deleteRow:i andSection:[indexPath section] forTableView:self.tableView];
+            
+            //must re-assign self.theSection here as for some reason self.theSection changes when deleteRowsAtIndexPaths... is called
+            //??????
+            self.theSection = [self.dictionary objectForKey:[NSString stringWithFormat:@"%li", (long)[indexPath section]]];
         }
-        NSLog(@"down 2b? = %i", self.theSection.down);
+        
         self.selectedSection = 1100; //set to a number far outside the bounds of the number of sections that actually exist
 
     }
-    else if ([[self.theSection.currentTitles objectAtIndex:1] isEqual:@"Sync Now"])
+    //for all dropDown cells
+    else if ([indexPath row] > 0)
     {
-        [self showProgressBarAndToolbar];
+
+        self.theCellTitle = [self.theSection.currentTitles objectAtIndex:[indexPath row]];
+        [self performSegueWithIdentifier:@"1" sender:self];
     }
-    
      else return;
 }
 
-- (void)insertRow:(NSInteger)row andSection:(NSInteger)section
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSArray *insertIndexPaths = [NSArray arrayWithObjects:[NSIndexPath indexPathForRow:row inSection:section], nil];
+    ImageViewController *destViewController = segue.destinationViewController;
+
+    //set block for different images displayed in ImageVC depending on cellTitle
+    void (^selectedDropDown)() = @{
+                                   @"iOS" : ^{
+                                    
+                                       destViewController.image = [UIImage imageNamed:@"HygroSkin.jpg"];
+                                   },
+                                   @"html & CSS" : ^{
+
+                                       destViewController.image = [UIImage imageNamed:@"Wonderpus.jpg"];
+                                   },
+                                   }[self.theCellTitle];
     
-    [self.tableView beginUpdates];
-    [self.tableView insertRowsAtIndexPaths:insertIndexPaths withRowAnimation:UITableViewRowAnimationFade];
-    [self.tableView endUpdates];
-    
+    //call block
+    if (selectedDropDown != nil)
+        selectedDropDown();
+
 }
 
-
-- (void)deleteRow:(NSInteger)row andSection:(NSInteger)section
-{
-    NSArray *deleteIndexPaths = [NSArray arrayWithObjects:[NSIndexPath indexPathForRow:row inSection:section], nil];
-    
-    NSLog(@"deleteIndexPaths = %@", deleteIndexPaths);
-    NSLog(@"row %ld, section %ld", (long)row, (long)section);
-    
-    [self.tableView beginUpdates];
-    [self.tableView deleteRowsAtIndexPaths:deleteIndexPaths withRowAnimation:UITableViewRowAnimationFade];
-    
-    [self.tableView endUpdates];
-    
-    //must re-assign self.theSection here as for some reason self.theSection changes when deleteRowsAtIndexPaths... is called
-    self.theSection = [self.dictionary objectForKey:[NSString stringWithFormat:@"%li", (long)section]];
-}
 
 //if only want to be able to select one drop-down main menu cell at a time
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -180,8 +186,6 @@
     }
     //else all other sections/rows should not be selectable
     else return nil;
-
-    
 }
 
 
@@ -204,7 +208,7 @@
 -(IBAction)onCancelTapped:(id)sender
 {
     //when cancel button tapped
-    NSLog(@"cancel button called");
+    MyLog(@"cancel button called");
     self.tableView.userInteractionEnabled = YES;
     self.progressView.hidden = YES;
     self.navigationController.toolbarHidden = YES;

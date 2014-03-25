@@ -24,8 +24,15 @@
 		2856852B183CF2E600CB04EB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 28568529183CF2E600CB04EB /* InfoPlist.strings */; };
 		2856852D183CF2E600CB04EB /* DropDownTableTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2856852C183CF2E600CB04EB /* DropDownTableTests.m */; };
 		28568538183CF41200CB04EB /* dropDownTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 28568537183CF41200CB04EB /* dropDownTableVC.m */; };
+		285D592C18E1F7090043FC70 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 285D592B18E1F7090043FC70 /* ImageViewController.m */; };
+		285D593118E1F9AC0043FC70 /* HygroSkin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 285D592D18E1F9AC0043FC70 /* HygroSkin.jpg */; };
+		285D593218E1F9AC0043FC70 /* IRR.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 285D592E18E1F9AC0043FC70 /* IRR.jpg */; };
+		285D593318E1F9AC0043FC70 /* Wonderpus.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 285D592F18E1F9AC0043FC70 /* Wonderpus.jpg */; };
+		285D593418E1F9AC0043FC70 /* GoodNight.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 285D593018E1F9AC0043FC70 /* GoodNight.jpg */; };
 		2862C139184653BB00A1FEE2 /* Lato-BolIta.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2862C138184653BB00A1FEE2 /* Lato-BolIta.otf */; };
 		288EF72A18E0580F003FC7EE /* InputMenus.m in Sources */ = {isa = PBXBuildFile; fileRef = 288EF72918E0580F003FC7EE /* InputMenus.m */; };
+		28A155AF18E1D17700B08114 /* AddDeleteRows.m in Sources */ = {isa = PBXBuildFile; fileRef = 28A155AE18E1D17700B08114 /* AddDeleteRows.m */; };
+		28A155B318E1DA1400B08114 /* DetermineSegues.m in Sources */ = {isa = PBXBuildFile; fileRef = 28A155B218E1DA1400B08114 /* DetermineSegues.m */; };
 		28C0C80018E042C50050E419 /* Design.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C0C7FF18E042C50050E419 /* Design.m */; };
 		28CCE51718490AAE0099D77E /* Sections.m in Sources */ = {isa = PBXBuildFile; fileRef = 28CCE51618490AAE0099D77E /* Sections.m */; };
 		28EE6070183E79F700AB8E9B /* Lato-Lig.otf in Resources */ = {isa = PBXBuildFile; fileRef = 28EE606F183E79F700AB8E9B /* Lato-Lig.otf */; };
@@ -64,9 +71,19 @@
 		2856852C183CF2E600CB04EB /* DropDownTableTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DropDownTableTests.m; sourceTree = "<group>"; };
 		28568536183CF41200CB04EB /* dropDownTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dropDownTableVC.h; sourceTree = "<group>"; };
 		28568537183CF41200CB04EB /* dropDownTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dropDownTableVC.m; sourceTree = "<group>"; };
+		285D592A18E1F7090043FC70 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
+		285D592B18E1F7090043FC70 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
+		285D592D18E1F9AC0043FC70 /* HygroSkin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = HygroSkin.jpg; sourceTree = "<group>"; };
+		285D592E18E1F9AC0043FC70 /* IRR.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IRR.jpg; sourceTree = "<group>"; };
+		285D592F18E1F9AC0043FC70 /* Wonderpus.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Wonderpus.jpg; sourceTree = "<group>"; };
+		285D593018E1F9AC0043FC70 /* GoodNight.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GoodNight.jpg; sourceTree = "<group>"; };
 		2862C138184653BB00A1FEE2 /* Lato-BolIta.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BolIta.otf"; sourceTree = "<group>"; };
 		288EF72818E0580F003FC7EE /* InputMenus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InputMenus.h; path = ../InputMenus.h; sourceTree = "<group>"; };
 		288EF72918E0580F003FC7EE /* InputMenus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InputMenus.m; path = ../InputMenus.m; sourceTree = "<group>"; };
+		28A155AD18E1D17700B08114 /* AddDeleteRows.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddDeleteRows.h; sourceTree = "<group>"; };
+		28A155AE18E1D17700B08114 /* AddDeleteRows.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDeleteRows.m; sourceTree = "<group>"; };
+		28A155B118E1DA1400B08114 /* DetermineSegues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetermineSegues.h; sourceTree = "<group>"; };
+		28A155B218E1DA1400B08114 /* DetermineSegues.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetermineSegues.m; sourceTree = "<group>"; };
 		28C0C7FE18E042C50050E419 /* Design.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Design.h; sourceTree = "<group>"; };
 		28C0C7FF18E042C50050E419 /* Design.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Design.m; sourceTree = "<group>"; };
 		28CCE51518490AAD0099D77E /* Sections.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sections.h; sourceTree = "<group>"; };
@@ -145,14 +162,11 @@
 			children = (
 				2856850D183CF2E600CB04EB /* dropDownAppDelegate.h */,
 				2856850E183CF2E600CB04EB /* dropDownAppDelegate.m */,
-				28EE606F183E79F700AB8E9B /* Lato-Lig.otf */,
 				28568506183CF2E600CB04EB /* DropDownTable-Info.plist */,
-				2862C138184653BB00A1FEE2 /* Lato-BolIta.otf */,
 				28568507183CF2E600CB04EB /* InfoPlist.strings */,
 				2856850A183CF2E600CB04EB /* main.m */,
-				28321712183F8B8200D74380 /* minus_button.png */,
-				28321714183F8B8800D74380 /* plus_button.png */,
 				2856850C183CF2E600CB04EB /* DropDownTable-Prefix.pch */,
+				28A155B018E1D6BB00B08114 /* Fonts&Images */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -202,8 +216,29 @@
 				28C0C7FF18E042C50050E419 /* Design.m */,
 				28568536183CF41200CB04EB /* dropDownTableVC.h */,
 				28568537183CF41200CB04EB /* dropDownTableVC.m */,
+				285D592A18E1F7090043FC70 /* ImageViewController.h */,
+				285D592B18E1F7090043FC70 /* ImageViewController.m */,
+				28A155B118E1DA1400B08114 /* DetermineSegues.h */,
+				28A155B218E1DA1400B08114 /* DetermineSegues.m */,
+				28A155AD18E1D17700B08114 /* AddDeleteRows.h */,
+				28A155AE18E1D17700B08114 /* AddDeleteRows.m */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		28A155B018E1D6BB00B08114 /* Fonts&Images */ = {
+			isa = PBXGroup;
+			children = (
+				285D592D18E1F9AC0043FC70 /* HygroSkin.jpg */,
+				285D592E18E1F9AC0043FC70 /* IRR.jpg */,
+				285D592F18E1F9AC0043FC70 /* Wonderpus.jpg */,
+				285D593018E1F9AC0043FC70 /* GoodNight.jpg */,
+				28EE606F183E79F700AB8E9B /* Lato-Lig.otf */,
+				2862C138184653BB00A1FEE2 /* Lato-BolIta.otf */,
+				28321712183F8B8200D74380 /* minus_button.png */,
+				28321714183F8B8800D74380 /* plus_button.png */,
+			);
+			name = "Fonts&Images";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,12 +319,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				28321713183F8B8200D74380 /* minus_button.png in Resources */,
+				285D593318E1F9AC0043FC70 /* Wonderpus.jpg in Resources */,
 				28568515183CF2E600CB04EB /* Main_iPad.storyboard in Resources */,
 				28321715183F8B8800D74380 /* plus_button.png in Resources */,
+				285D593418E1F9AC0043FC70 /* GoodNight.jpg in Resources */,
+				285D593218E1F9AC0043FC70 /* IRR.jpg in Resources */,
 				2856851A183CF2E600CB04EB /* Images.xcassets in Resources */,
 				28568512183CF2E600CB04EB /* Main_iPhone.storyboard in Resources */,
 				28568509183CF2E600CB04EB /* InfoPlist.strings in Resources */,
 				2862C139184653BB00A1FEE2 /* Lato-BolIta.otf in Resources */,
+				285D593118E1F9AC0043FC70 /* HygroSkin.jpg in Resources */,
 				28EE6070183E79F700AB8E9B /* Lato-Lig.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -311,8 +350,11 @@
 			files = (
 				2856850B183CF2E600CB04EB /* main.m in Sources */,
 				288EF72A18E0580F003FC7EE /* InputMenus.m in Sources */,
+				28A155AF18E1D17700B08114 /* AddDeleteRows.m in Sources */,
 				28C0C80018E042C50050E419 /* Design.m in Sources */,
 				28CCE51718490AAE0099D77E /* Sections.m in Sources */,
+				28A155B318E1DA1400B08114 /* DetermineSegues.m in Sources */,
+				285D592C18E1F7090043FC70 /* ImageViewController.m in Sources */,
 				2856850F183CF2E600CB04EB /* dropDownAppDelegate.m in Sources */,
 				28568538183CF41200CB04EB /* dropDownTableVC.m in Sources */,
 			);

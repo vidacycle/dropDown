@@ -14,3 +14,10 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 #endif
+
+#ifdef DEBUG
+#define MyLog NSLog
+#else
+// do nothing
+#define MyLog(...)
+#endif
