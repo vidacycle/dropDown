@@ -13,16 +13,20 @@
 
 -(NSDictionary*)setUpMenus
 {
-    NSArray *sect0 = [[NSArray alloc] initWithObjects:@"Scan", @"Scan Now", nil];
-    NSArray *sect1 = [[NSArray alloc] initWithObjects:@"Sync", @"Sync Now", @"funtimes", nil];
-    NSArray *sect2 = [[NSArray alloc] initWithObjects:@"Settings", @"Write", @"Update", nil];
-    NSArray *sect3 = [[NSArray alloc] initWithObjects:@"Ses", @"Wrte", @"Updte", nil];
-    NSArray *sect4 = [[NSArray alloc] initWithObjects:@"Setdds", @"Wite", @"Uate", nil];
+    //enter the different main menu items as the initial string in each array, with subsequent strings in that array being the drop down menus for that item
+    NSArray *sect0 = [[NSArray alloc] initWithObjects:@"Code", @"iOS", @"html & CSS", nil];
+    NSArray *sect1 = [[NSArray alloc] initWithObjects:@"Write", @"AnOther", @"Protein", @"Stylus", nil];
+    NSArray *sect2 = [[NSArray alloc] initWithObjects:@"Sites", @"vidacycle", @"Poplin", @"polymathine", nil];
+    NSArray *sect3 = [[NSArray alloc] initWithObjects:@"Collab", @"TransitOfVenus", @"FeynmanPrinting", nil];
+    NSArray *sect4 = [[NSArray alloc] initWithObjects:@"Teach", @"Maths", @"Physics", @"General", nil];
 
     
-    self.sections = [[NSMutableArray alloc] initWithCapacity:10];
+    //add all arrays to this array
     NSArray *sectionsArray =[[NSArray alloc] initWithObjects:sect0, sect1, sect2, sect3, sect4, nil];
-
+    
+    
+    
+    self.sections = [[NSMutableArray alloc] initWithCapacity:10];
     NSDictionary *theDictionary = [self createArraysForEachSection:[sectionsArray count] fromSectionRowTitles:sectionsArray];
     
     return theDictionary;

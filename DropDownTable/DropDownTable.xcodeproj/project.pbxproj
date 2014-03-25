@@ -178,8 +178,6 @@
 		288EF72C18E05D73003FC7EE /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				28C0C7FE18E042C50050E419 /* Design.h */,
-				28C0C7FF18E042C50050E419 /* Design.m */,
 				288EF72818E0580F003FC7EE /* InputMenus.h */,
 				288EF72918E0580F003FC7EE /* InputMenus.m */,
 				28CCE51518490AAD0099D77E /* Sections.h */,
@@ -200,6 +198,8 @@
 		288EF72E18E05D8E003FC7EE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				28C0C7FE18E042C50050E419 /* Design.h */,
+				28C0C7FF18E042C50050E419 /* Design.m */,
 				28568536183CF41200CB04EB /* dropDownTableVC.h */,
 				28568537183CF41200CB04EB /* dropDownTableVC.m */,
 			);

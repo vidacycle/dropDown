@@ -50,6 +50,9 @@
     
     //large integer well outside of range of number of sections, allows to determine when no sections selected
     self.selectedSection = 1100;
+    
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
 }
 
 
@@ -128,7 +131,7 @@
     NSLog(@"down 1? = %i", self.theSection.down);
     NSLog(@"objectForKey: %@",[NSString stringWithFormat:@"%li",(long)[indexPath section]]);
     NSLog(@"titles %@ and current titles %@", self.theSection.titles, self.theSection.currentTitles);
-    //row0
+    //if the main menu cell is selected
     if ([indexPath row] == 0 && self.theSection.down == NO)
     {
         self.selectedSection = indexPath.section;
@@ -143,6 +146,7 @@
 
     }
     
+    //if the main menu cell is de-selected
     else if ([indexPath row] == 0 && self.theSection.down == YES && [self.theSection.currentTitles count] >1)
     {
         //
@@ -161,13 +165,12 @@
     else if ([[self.theSection.currentTitles objectAtIndex:1] isEqual:@"Sync Now"])
     {
         [self showProgressBarAndToolbar];
-
     }
     
      else return;
-    
 }
 
+//if only want to be able to select one drop-down main menu cell at a time
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // rows in selectedSection should be selectable, or if selectedSection = 1100 (i.e none of the sections are currently selected)
     if(self.selectedSection == 1100 || indexPath.section == self.selectedSection)
@@ -180,16 +183,8 @@
     
 }
 
--(IBAction)onCancelTapped:(id)sender
-{
-    //when cancel button tapped
-    NSLog(@"cancel button called");
-    self.tableView.userInteractionEnabled = YES;
-    self.progressView.hidden = YES;
-    self.navigationController.toolbarHidden = YES;
-    
-}
 
+//optional progress baar functionality on same view - if one of the menu options calls a sync-like process then call these methods
 -(void)showProgressBarAndToolbar
 {
     self.tableView.userInteractionEnabled = NO;
@@ -202,6 +197,17 @@
     NSArray *toolbarItems = [NSArray arrayWithObjects:spaceItem, customItem, spaceItem, nil];
     
     [self setToolbarItems:toolbarItems animated:NO];
+}
+
+
+-(IBAction)onCancelTapped:(id)sender
+{
+    //when cancel button tapped
+    NSLog(@"cancel button called");
+    self.tableView.userInteractionEnabled = YES;
+    self.progressView.hidden = YES;
+    self.navigationController.toolbarHidden = YES;
+    
 }
 
 @end
