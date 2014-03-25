@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface dropDownTableVC : UITableViewController <UITableViewDataSource, UITableViewDelegate>
+@interface dropDownTableVC : UITableViewController  <UITableViewDelegate, UITableViewDataSource>
 
 @end

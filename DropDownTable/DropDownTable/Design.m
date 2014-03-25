@@ -23,8 +23,6 @@
 }
 
 
-
-
 //custom accessory view
 -(UIView*)customAccessoryViewFor:(UIImage*)theAccessory
 {

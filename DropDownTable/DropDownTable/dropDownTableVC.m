@@ -53,6 +53,7 @@
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    
 }
 
 
@@ -91,37 +92,8 @@
 
     return cell;
 }
-         
-- (IBAction)insertRows:(id)sender forIndexPathRow:(NSInteger)row andSection:(NSInteger)section
-{
-    NSArray *insertIndexPaths = [NSArray arrayWithObjects:[NSIndexPath indexPathForRow:row inSection:section], nil];
 
-   self.tableView = (UITableView *)self.view;
-    
-    [self.tableView beginUpdates];
-    [self.tableView insertRowsAtIndexPaths:insertIndexPaths withRowAnimation:UITableViewRowAnimationFade];
-    [self.tableView endUpdates];
-
-}
-
-
-- (void)deleteRow:(NSInteger)row andSection:(NSInteger)section
-{
-    NSArray *deleteIndexPaths = [NSArray arrayWithObjects:[NSIndexPath indexPathForRow:row inSection:section], nil];
-    
-    NSLog(@"deleteIndexPaths = %@", deleteIndexPaths);
-    NSLog(@"row %ld, section %ld", (long)row, (long)section);
-    
-    self.tableView = (UITableView *)self.view;
-     NSLog(@"the section %@", self.theSection);
-    [self.tableView beginUpdates];
-    [self.tableView deleteRowsAtIndexPaths:deleteIndexPaths withRowAnimation:UITableViewRowAnimationFade];
-    
-    [self.tableView endUpdates];
-    NSLog(@"the section %@", self.theSection);
-    self.theSection = [self.dictionary objectForKey:[NSString stringWithFormat:@"%li", (long)section]];
-        NSLog(@"the section %@", self.theSection);
-}
+#pragma mark Table View Delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -137,9 +109,10 @@
         self.selectedSection = indexPath.section;
         cell.accessoryView = [self.design deleteCellAccessory];
         
+        //add all drop down cells for this section
         for (int i=1; i<[self.theSection.titles count]; i++) {
         [self.theSection.currentTitles insertObject:[self.theSection.titles objectAtIndex:i] atIndex:i];
-        [self insertRows:self forIndexPathRow:i andSection:[indexPath section]];
+        [self insertRow:i andSection:[indexPath section]];
         }
         self.theSection.down = YES;
         NSLog(@"down 2a? = %i", self.theSection.down);
@@ -154,6 +127,7 @@
         cell.accessoryView = [self.design addCellAccessory];
         self.theSection.down = NO;
         
+        //remove all drop down cells for this section
         for (int i=([self.theSection.currentTitles count]-1); i>0; i--) {
         [self.theSection.currentTitles removeObjectAtIndex:i];
         [self deleteRow:i andSection:[indexPath section]];
@@ -170,6 +144,33 @@
      else return;
 }
 
+- (void)insertRow:(NSInteger)row andSection:(NSInteger)section
+{
+    NSArray *insertIndexPaths = [NSArray arrayWithObjects:[NSIndexPath indexPathForRow:row inSection:section], nil];
+    
+    [self.tableView beginUpdates];
+    [self.tableView insertRowsAtIndexPaths:insertIndexPaths withRowAnimation:UITableViewRowAnimationFade];
+    [self.tableView endUpdates];
+    
+}
+
+
+- (void)deleteRow:(NSInteger)row andSection:(NSInteger)section
+{
+    NSArray *deleteIndexPaths = [NSArray arrayWithObjects:[NSIndexPath indexPathForRow:row inSection:section], nil];
+    
+    NSLog(@"deleteIndexPaths = %@", deleteIndexPaths);
+    NSLog(@"row %ld, section %ld", (long)row, (long)section);
+    
+    [self.tableView beginUpdates];
+    [self.tableView deleteRowsAtIndexPaths:deleteIndexPaths withRowAnimation:UITableViewRowAnimationFade];
+    
+    [self.tableView endUpdates];
+    
+    //must re-assign self.theSection here as for some reason self.theSection changes when deleteRowsAtIndexPaths... is called
+    self.theSection = [self.dictionary objectForKey:[NSString stringWithFormat:@"%li", (long)section]];
+}
+
 //if only want to be able to select one drop-down main menu cell at a time
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // rows in selectedSection should be selectable, or if selectedSection = 1100 (i.e none of the sections are currently selected)
@@ -184,7 +185,7 @@
 }
 
 
-//optional progress baar functionality on same view - if one of the menu options calls a sync-like process then call these methods
+//optional progress bar functionality on same view - if one of the menu options calls a sync-like process then call these methods
 -(void)showProgressBarAndToolbar
 {
     self.tableView.userInteractionEnabled = NO;
@@ -209,5 +210,6 @@
     self.navigationController.toolbarHidden = YES;
     
 }
+
 
 @end
